@@ -1,0 +1,7 @@
+{
+  "name": "Calculadora Solar Profissional",
+  "description": "Uma calculadora solar profissional e interativa que ajuda os usuários a simular o sistema de energia solar ideal para suas necessidades. O aplicativo guia os usuários através de um processo de quatro etapas, coletando dados pessoais, de consumo de energia e preferências de sistema para fornecer uma análise detalhada de custos, economia e retorno do investimento.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

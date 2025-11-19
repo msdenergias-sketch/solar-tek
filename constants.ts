@@ -1,0 +1,117 @@
+
+import type { FormData, BatteryData } from './types';
+
+export const BATTERY_DATABASE: Record<string, BatteryData> = {
+    'lifepo4-5.12': { capacity: 5.12, voltage: 51.2, cycles: 6000, efficiency: 0.95, cost: 12000, name: 'LiFePO4 5.12kWh', maxDod: 0.95, warranty: 10 },
+    'lifepo4-10.24': { capacity: 10.24, voltage: 51.2, cycles: 6000, efficiency: 0.95, cost: 22000, name: 'LiFePO4 10.24kWh', maxDod: 0.95, warranty: 10 },
+    'lifepo4-15.36': { capacity: 15.36, voltage: 51.2, cycles: 6000, efficiency: 0.95, cost: 32000, name: 'LiFePO4 15.36kWh', maxDod: 0.95, warranty: 10 },
+    'gel-220ah': { capacity: 2.64, voltage: 12, cycles: 1200, efficiency: 0.85, cost: 1800, name: 'Gel 220Ah', maxDod: 0.8, warranty: 3 },
+    'gel-150ah': { capacity: 1.8, voltage: 12, cycles: 1200, efficiency: 0.85, cost: 1400, name: 'Gel 150Ah', maxDod: 0.8, warranty: 3 },
+    'agm-220ah': { capacity: 2.64, voltage: 12, cycles: 800, efficiency: 0.8, cost: 1200, name: 'AGM 220Ah', maxDod: 0.7, warranty: 2 },
+    'agm-150ah': { capacity: 1.8, voltage: 12, cycles: 800, efficiency: 0.8, cost: 900, name: 'AGM 150Ah', maxDod: 0.7, warranty: 2 },
+};
+
+export const INITIAL_BATTERY_CONFIG = {
+    autonomy: 8,
+    load: 0.55,
+    type: 'lifepo4-5.12',
+    dod: 0.8,
+    systemConfig: 'auto',
+    count: 0,
+    cost: 0,
+    capacity: 0,
+    usableCapacity: 0,
+    batteryData: BATTERY_DATABASE['lifepo4-5.12'],
+    systemVoltage: 48,
+    strings: 0,
+    batteriesPerString: 0
+};
+
+export const INITIAL_OFFGRID_CONFIG = {
+    autonomyDays: 3,
+    dod: 0.8,
+    batteryCount: 0,
+    extraPanels: 0,
+    cost: 0,
+};
+
+export const INITIAL_VEHICLE_CONFIG = {
+    hasVehicle: false,
+    type: 'tesla-model3',
+    kmPerMonth: 1000,
+    consumption: 15.8,
+    monthlyConsumption: 0,
+    savings: 0,
+};
+
+export const INITIAL_FORM_DATA: FormData = {
+    nome: '',
+    email: '',
+    telefone: '',
+    documento: '',
+    cep: '',
+    rua: '',
+    numero: '',
+    complemento: '',
+    bairro: '',
+    cidade: '',
+    estado: '',
+    pontoReferencia: '',
+    consumo: 350,
+    valorConta: 280,
+    tipoLigacao: 'monofasico',
+    sistema: 'ongrid',
+    veiculo: INITIAL_VEHICLE_CONFIG,
+    faturas: [],
+    baterias: INITIAL_BATTERY_CONFIG,
+    offgrid: INITIAL_OFFGRID_CONFIG,
+};
+
+export const VEHICLE_DATABASE: Record<string, { consumption: number; name: string; category: string }> = {
+    'nissan-leaf': { consumption: 15.2, name: 'Nissan Leaf', category: 'Compacto' },
+    'byd-dolphin': { consumption: 13.8, name: 'BYD Dolphin', category: 'Compacto' },
+    'byd-dolphin-mini': { consumption: 11.5, name: 'BYD Dolphin Mini', category: 'Compacto' },
+    'renault-zoe': { consumption: 14.3, name: 'Renault Zoe', category: 'Compacto' },
+    'jac-e-js1': { consumption: 13.2, name: 'JAC E-JS1', category: 'Compacto' },
+    'chery-arrizo5e': { consumption: 12.8, name: 'Chery Arrizo 5e', category: 'Compacto' },
+    'tesla-model3': { consumption: 15.8, name: 'Tesla Model 3', category: 'Sedã' },
+    'byd-han': { consumption: 16.2, name: 'BYD Han', category: 'Sedã' },
+    'byd-seal': { consumption: 15.5, name: 'BYD Seal', category: 'Sedã' },
+    'byd-qin': { consumption: 14.1, name: 'BYD Qin Plus', category: 'Sedã' },
+    'volvo-c40': { consumption: 17.3, name: 'Volvo C40', category: 'Sedã' },
+    'polestar-2': { consumption: 16.8, name: 'Polestar 2', category: 'Sedã' },
+    'tesla-modely': { consumption: 18.2, name: 'Tesla Model Y', category: 'SUV' },
+    'byd-yuan': { consumption: 16.5, name: 'BYD Yuan Plus', category: 'SUV' },
+    'byd-song': { consumption: 17.1, name: 'BYD Song Plus', category: 'SUV' },
+    'byd-tang': { consumption: 19.3, name: 'BYD Tang', category: 'SUV' },
+    'volvo-xc40': { consumption: 18.7, name: 'Volvo XC40 Recharge', category: 'SUV' },
+    'bmw-ix3': { consumption: 19.1, name: 'BMW iX3', category: 'SUV' },
+    'audi-etron': { consumption: 22.4, name: 'Audi e-tron', category: 'SUV' },
+    'mercedes-eqc': { consumption: 21.8, name: 'Mercedes EQC', category: 'SUV' },
+    'jaguar-ipace': { consumption: 20.5, name: 'Jaguar I-PACE', category: 'SUV' },
+    'tesla-models': { consumption: 20.1, name: 'Tesla Model S', category: 'Premium' },
+    'tesla-modelx': { consumption: 22.3, name: 'Tesla Model X', category: 'Premium' },
+    'byd-u8': { consumption: 25.2, name: 'BYD U8', category: 'Premium' },
+    'byd-u9': { consumption: 23.7, name: 'BYD U9', category: 'Premium' },
+    'porsche-taycan': { consumption: 21.5, name: 'Porsche Taycan', category: 'Premium' },
+    'bmw-ix': { consumption: 20.8, name: 'BMW iX', category: 'Premium' },
+    'mercedes-eqs': { consumption: 19.4, name: 'Mercedes EQS', category: 'Premium' },
+    'lucid-air': { consumption: 18.9, name: 'Lucid Air', category: 'Premium' },
+    'byd-t3': { consumption: 28.5, name: 'BYD T3', category: 'Comercial' },
+    'byd-t8': { consumption: 35.2, name: 'BYD T8', category: 'Comercial' },
+    'iveco-daily': { consumption: 30.1, name: 'Iveco Daily Elétrico', category: 'Comercial' },
+    'mercedes-esprinter': { consumption: 32.4, name: 'Mercedes eSprinter', category: 'Comercial' },
+    'ford-etransit': { consumption: 29.7, name: 'Ford E-Transit', category: 'Comercial' },
+    'toyota-prius': { consumption: 8.2, name: 'Toyota Prius Prime', category: 'Híbrido Plug-in' },
+    'corolla-cross-hybrid': { consumption: 9.1, name: 'Corolla Cross Hybrid', category: 'Híbrido Plug-in' },
+    'bmw-x5-hybrid': { consumption: 12.3, name: 'BMW X5 xDrive45e', category: 'Híbrido Plug-in' },
+    'volvo-xc60-hybrid': { consumption: 11.7, name: 'Volvo XC60 T8', category: 'Híbrido Plug-in' },
+    'mercedes-gle-hybrid': { consumption: 13.1, name: 'Mercedes GLE 350e', category: 'Híbrido Plug-in' },
+    'audi-q5-hybrid': { consumption: 10.8, name: 'Audi Q5 TFSI e', category: 'Híbrido Plug-in' },
+    'porsche-cayenne-hybrid': { consumption: 14.2, name: 'Porsche Cayenne E-Hybrid', category: 'Híbrido Plug-in' },
+    'toyota-corolla-hybrid': { consumption: 6.5, name: 'Toyota Corolla Hybrid', category: 'Híbrido' },
+    'toyota-camry-hybrid': { consumption: 7.2, name: 'Toyota Camry Hybrid', category: 'Híbrido' },
+    'honda-accord-hybrid': { consumption: 7.1, name: 'Honda Accord Hybrid', category: 'Híbrido' },
+    'lexus-ux-hybrid': { consumption: 8.3, name: 'Lexus UX 250h', category: 'Híbrido' },
+    'lexus-nx-hybrid': { consumption: 9.2, name: 'Lexus NX 350h', category: 'Híbrido' }
+};
