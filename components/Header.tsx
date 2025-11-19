@@ -88,7 +88,7 @@ const Header: React.FC = () => {
 
                         {/* Navegação Inferior (Voltar/Continuar) */}
                         {currentStep < 4 && (
-                            <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-100 md:hidden">
+                            <div className="flex items-center justify-between mt-2 pt-2 border-t border-gray-100">
                                 <button onClick={handlePrevStep} disabled={currentStep === 1} className="text-gray-500 px-3 py-1.5 rounded text-sm font-medium hover:text-gray-700 disabled:opacity-30">
                                     ← Voltar
                                 </button>
@@ -102,7 +102,7 @@ const Header: React.FC = () => {
             </header>
 
             {/* Espaçador para compensar o Header fixo - Altura dinâmica */}
-            <div className="h-[150px] md:h-[180px]"></div>
+            <div className="h-[150px] md:h-[230px]"></div>
 
             {/* Botão Flutuante 'Novo Orçamento' */}
             <div className="fixed bottom-6 right-6 z-[60]">
